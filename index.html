@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Microsoft 365 Basics - Thompsons For Travel</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Open+Sans:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+  :root{
+    --navy:#0A52A0;
+    --navy-deep:#073963;
+    --cyan:#00AEEF;
+    --cyan-soft:#E4F6FE;
+    --ink:#1B2430;
+    --slate:#5B6B7C;
+    --slate-bg:#E9EDF1;
+    --paper:#FFFFFF;
+    --green:#17794A;
+    --red:#A9291F;
+    --amber:#B5720A;
+    --green-bg:#EAF6EF;
+    --red-bg:#FBEBEA;
+    --amber-bg:#FCF3E3;
+    --border:#DCE3EA;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--slate-bg);
+    color:var(--ink);
+    font-family:'Open Sans', 'Segoe UI', sans-serif;
+    font-size:14px;
+    line-height:1.6;
+  }
+  .wrap{max-width:1000px;margin:0 auto;padding:0 20px 60px;}
+
+  header.hero{
+    background:linear-gradient(135deg, var(--cyan-soft) 0%, #F3F9FD 60%, #FFFFFF 100%);
+    border-bottom:3px solid var(--cyan);
+    padding:28px 20px 24px;
+  }
+  .hero-inner{max-width:1000px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;}
+  .logo{display:flex;flex-direction:column;line-height:1;}
+  .logo .t4t{font-family:'Nunito',sans-serif;font-weight:900;font-size:22px;color:var(--navy-deep);letter-spacing:.2px;}
+  .logo .ft{font-family:'Space Mono',monospace;font-weight:700;font-size:10px;letter-spacing:2px;color:var(--cyan);margin-top:3px;text-transform:uppercase;}
+  .eyebrow{font-family:'Space Mono',monospace;text-transform:uppercase;letter-spacing:1.5px;font-size:10.5px;color:var(--slate);margin-bottom:6px;}
+  h1{font-family:'Nunito',sans-serif;font-weight:900;font-size:27px;color:var(--navy-deep);margin:0 0 6px;}
+  .hero-desc{color:var(--slate);max-width:520px;font-size:13.5px;}
+  .print-btn{
+    position:fixed;top:18px;right:18px;z-index:50;
+    background:var(--paper);border:1px solid var(--border);color:var(--navy);
+    font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:1px;text-transform:uppercase;
+    padding:9px 16px;border-radius:999px;cursor:pointer;box-shadow:0 2px 6px rgba(10,82,160,.15);
+  }
+  .print-btn:hover{background:var(--cyan-soft);}
+
+  nav.toc{
+    max-width:1000px;margin:22px auto 0;padding:0 20px;
+    display:flex;flex-wrap:wrap;gap:8px;
+  }
+  nav.toc a{
+    font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.5px;text-transform:uppercase;
+    background:var(--paper);border:1px solid var(--border);color:var(--navy);
+    padding:7px 13px;border-radius:999px;text-decoration:none;
+  }
+  nav.toc a:hover{background:var(--cyan-soft);border-color:var(--cyan);}
+  nav.toc a.part{background:var(--navy);color:#fff;border-color:var(--navy);}
+
+  .intro-card{
+    background:var(--paper);border:1px solid var(--border);border-radius:12px;
+    box-shadow:0 1px 2px rgba(10,20,40,.05), 0 6px 18px rgba(10,20,40,.05);
+    padding:20px 24px;margin-top:22px;display:flex;gap:16px;align-items:flex-start;
+  }
+  .intro-card .ic{font-size:26px;line-height:1;}
+  .intro-card p{margin:0 0 8px;color:var(--ink);}
+  .intro-card strong{color:var(--navy-deep);}
+  .btn{
+    display:inline-block;margin-top:6px;background:var(--navy);color:#fff;text-decoration:none;
+    font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:1px;text-transform:uppercase;
+    padding:9px 16px;border-radius:999px;
+  }
+  .btn:hover{background:var(--navy-deep);}
+
+  .legend{
+    background:var(--paper);border:1px solid var(--border);border-radius:12px;
+    box-shadow:0 1px 2px rgba(10,20,40,.05), 0 6px 18px rgba(10,20,40,.05);
+    padding:20px 24px;margin-top:16px;
+  }
+  .legend h3{font-family:'Nunito',sans-serif;font-weight:800;font-size:16px;color:var(--navy-deep);margin:0 0 4px;}
+  .legend .sub{color:var(--slate);font-size:12.5px;margin-bottom:14px;}
+  .legend-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;}
+  .legend-item{display:flex;gap:10px;align-items:flex-start;background:var(--slate-bg);border-radius:6px;padding:10px 12px;}
+  .dot{width:13px;height:13px;border-radius:50%;flex:0 0 13px;margin-top:2px;}
+  .dot-green{background:var(--green);}
+  .dot-amber{background:var(--amber);}
+  .dot-red{background:var(--red);}
+  .dot-blue{background:var(--navy);}
+  .legend-item b{display:block;font-size:12.5px;color:var(--ink);}
+  .legend-item span{font-size:12px;color:var(--slate);overflow-wrap:anywhere;}
+  .legend-item > div{min-width:0;}
+
+  .part-title{
+    margin:36px 0 14px;display:flex;align-items:center;gap:12px;scroll-margin-top:20px;
+    break-after:avoid;page-break-after:avoid;
+  }
+  .part-title .num{
+    width:30px;height:30px;border-radius:6px;background:var(--navy);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-weight:700;font-size:13px;flex:0 0 30px;
+  }
+  .part-title h2{font-family:'Nunito',sans-serif;font-weight:800;font-size:19px;color:var(--navy-deep);margin:0;}
+  .part-title .tag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--slate);}
+  .part-intro{color:var(--slate);margin:-6px 0 14px 42px;font-size:13px;}
+
+  section.card{
+    background:var(--paper);border:1px solid var(--border);border-radius:12px;
+    box-shadow:0 1px 2px rgba(10,20,40,.05), 0 6px 18px rgba(10,20,40,.05);
+    padding:22px 24px;margin-bottom:16px;scroll-margin-top:20px;
+  }
+  .card-head{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+  .badge{
+    width:28px;height:28px;border-radius:6px;background:var(--cyan-soft);color:var(--navy);
+    display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-weight:700;font-size:12px;flex:0 0 28px;
+  }
+  .card h3{font-family:'Nunito',sans-serif;font-weight:800;font-size:16.5px;color:var(--navy-deep);margin:0;}
+  .card h4{font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;color:var(--navy);margin:16px 0 4px;}
+  .card p{margin:8px 0;}
+  .card ul{margin:8px 0;padding-left:20px;}
+  .card li{margin-bottom:5px;}
+  .status-line{
+    display:flex;align-items:center;gap:8px;font-size:13px;background:var(--slate-bg);
+    border-radius:6px;padding:8px 12px;margin:10px 0;
+  }
+  .status-line .dot{margin-top:0;}
+
+  .callout{
+    border-radius:12px;padding:14px 18px;margin:14px 0;display:flex;gap:12px;align-items:flex-start;font-size:13px;
+  }
+  .callout .ic{font-size:17px;line-height:1.3;}
+  .callout-amber{background:var(--amber-bg);border:1px solid #EAD3A5;color:#6B4B0A;}
+  .callout-blue{background:var(--cyan-soft);border:1px solid #B7E4F7;color:var(--navy-deep);}
+  .callout strong{display:block;margin-bottom:2px;}
+
+  .step-list{counter-reset:step;list-style:none;padding:0;margin:10px 0;}
+  .step-list > li{
+    counter-increment:step;position:relative;padding-left:34px;margin-bottom:10px;
+  }
+  .step-list > li::before{
+    content:counter(step);position:absolute;left:0;top:0;
+    width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;
+    font-family:'Space Mono',monospace;font-size:11px;font-weight:700;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .sub-block{background:var(--slate-bg);border-radius:6px;padding:10px 14px;margin:8px 0;}
+  .sub-block p{margin:4px 0;}
+
+  .ui{font-family:'Space Mono',monospace;font-size:12px;background:var(--cyan-soft);color:var(--navy-deep);padding:1px 6px;border-radius:4px;white-space:nowrap;}
+  .name{font-family:'Space Mono',monospace;font-size:12px;color:var(--navy-deep);}
+
+  .tree{
+    font-family:'Space Mono',monospace;font-size:12px;line-height:1.75;background:var(--slate-bg);
+    border-radius:6px;padding:12px 16px;margin:10px 0;color:var(--ink);overflow-x:auto;
+  }
+  .tree .l1{padding-left:18px;}
+  .tree .l2{padding-left:36px;}
+  .tree .l3{padding-left:54px;color:var(--slate);}
+  .tree b{color:var(--navy-deep);}
+
+  .tbl-wrap{overflow-x:auto;margin:10px 0;border-radius:8px;border:1px solid var(--border);}
+  table.spec{width:100%;border-collapse:collapse;font-size:13px;min-width:460px;}
+  table.spec th{
+    background:var(--navy);color:#fff;text-align:left;font-family:'Space Mono',monospace;
+    font-size:10.5px;letter-spacing:.8px;text-transform:uppercase;padding:9px 12px;font-weight:700;
+  }
+  table.spec td{padding:9px 12px;border-top:1px solid var(--border);vertical-align:top;}
+  table.spec tr:nth-child(even) td{background:#F7FAFC;}
+
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0;}
+  .mini{background:var(--slate-bg);border-radius:8px;padding:12px 14px;}
+  .mini b{display:block;color:var(--navy-deep);font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;margin-bottom:2px;}
+  .mini span{font-size:12.5px;color:var(--slate);}
+
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0;}
+  .chip{font-family:'Space Mono',monospace;font-size:11px;background:var(--cyan-soft);color:var(--navy-deep);border:1px solid #B7E4F7;padding:3px 10px;border-radius:999px;}
+
+  .more-help{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:14px;padding-top:12px;border-top:1px dashed var(--border);}
+  .more-help span{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--slate);margin-right:2px;}
+  .more-help a{font-size:12px;color:var(--navy);text-decoration:none;background:var(--cyan-soft);border:1px solid #B7E4F7;padding:4px 11px;border-radius:999px;}
+  .more-help a:hover{background:#fff;}
+  .more-help a::after{content:" \2197";font-size:11px;}
+  .vid-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:10px 0;}
+  .vid{display:block;background:var(--slate-bg);border-radius:8px;padding:12px 14px;text-decoration:none;color:var(--ink);border:1px solid transparent;}
+  .vid:hover{border-color:var(--cyan);background:var(--cyan-soft);}
+  .vid b{display:block;color:var(--navy-deep);font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;}
+  .vid span{font-size:12.5px;color:var(--slate);}
+  a.inl{color:var(--navy);font-weight:600;}
+
+  footer{
+    max-width:1000px;margin:30px auto 0;padding:16px 20px;color:var(--slate);
+    font-size:11.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;
+    border-top:1px solid var(--border);
+  }
+
+  @media print{
+    .print-btn, nav.toc{display:none;}
+    body{background:#fff;}
+    section.card, .legend, .intro-card, .callout, .tree, .tbl-wrap{box-shadow:none;break-inside:avoid;page-break-inside:avoid;}
+    .part-title{break-after:avoid;page-break-after:avoid;}
+    .btn{background:none;color:var(--navy);border:1px solid var(--navy);}
+  }
+  @media (max-width:640px){
+    h1{font-size:22px;}
+    .hero-inner{align-items:flex-start;}
+    .print-btn{position:static;display:block;margin:12px 16px 0 auto;}
+    .wrap{padding:0 16px 48px;}
+    nav.toc{padding:0 16px;}
+    section.card,.legend,.intro-card{padding:18px 16px;}
+    .intro-card{flex-direction:column;gap:8px;}
+    .two-col{grid-template-columns:1fr;}
+    .part-intro{margin-left:0;}
+  }
+  .status-line span{display:block;}
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">🖨️ Print / Save PDF</button>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="logo"><span class="t4t">Thompsons</span><span class="ft">For Travel</span></div>
+    </div>
+    <div style="text-align:left;">
+      <div class="eyebrow">Systems and tools · Quick Tips</div>
+      <h1>Microsoft 365 Basics</h1>
+      <div class="hero-desc">Simple tips for the Microsoft tools you use every day: Outlook, Teams, OneDrive and our Knowledge Hub.</div>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <a href="#m1">Outlook</a>
+  <a href="#m2">Teams</a>
+  <a href="#m3">OneDrive</a>
+  <a href="#m4">Knowledge Hub</a>
+  <a href="#m5">Staying secure</a>
+  <a href="#m6">Find any setting</a>
+</nav>
+
+<div class="wrap">
+
+  <div class="intro-card">
+    <div class="ic">💻</div>
+    <div>
+      <p><strong>Four tools, one sign-in.</strong> Your work email, team chat, files and this Knowledge Hub all sit in Microsoft 365, and you sign in to all of them with your work email address.</p>
+      <p>You don't need to know everything. These are the few things that make the biggest difference day to day.</p>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="mini"><b>📧 Outlook</b><span>Your work email and calendar.</span></div>
+    <div class="mini"><b>💬 Teams</b><span>Chats, calls and meetings with the team.</span></div>
+    <div class="mini"><b>☁️ OneDrive</b><span>Your work files, saved safely and backed up.</span></div>
+    <div class="mini"><b>📚 Knowledge Hub</b><span>All your training and guides, built on SharePoint.</span></div>
+  </div>
+
+  <div class="part-title"><div class="num">1</div><div><div class="tag">Every day</div><h2>Email, Chat and Files</h2></div></div>
+
+  <section class="card" id="m1">
+    <div class="card-head"><div class="badge">1</div><h3>Outlook</h3></div>
+    <ul>
+      <li><strong>Search instead of scrolling.</strong> Type a client's name, surname or booking reference into the search bar at the top to find every email about them.</li>
+      <li><strong>Flag emails you need to come back to,</strong> so nothing slips through on a busy day.</li>
+      <li><strong>Set an automatic reply when you're away,</strong> saying when you're back and who to contact in the meantime, so clients and colleagues aren't left waiting.</li>
+      <li><strong>Keep your email signature up to date</strong> with your name, role and contact number.</li>
+    </ul>
+    <div class="callout callout-blue">
+      <div class="ic">💡</div>
+      <div><strong>Can't find a setting?</strong> In Outlook, open Settings and type what you're looking for, for example "automatic replies" or "signature".</div>
+    </div>
+  </section>
+
+  <section class="card" id="m2">
+    <div class="card-head"><div class="badge">2</div><h3>Teams</h3></div>
+    <ul>
+      <li><strong>Use chat for quick questions</strong> to a colleague, instead of a long email.</li>
+      <li><strong>Type @ and a name</strong> to get someone's attention in a group chat. They'll get a notification.</li>
+      <li><strong>Set your status</strong> to Busy or Do not disturb when you're on a call with a client, so the team knows not to interrupt.</li>
+      <li><strong>Join meetings from the link</strong> in your calendar invite. Check your camera and microphone on the screen before you join.</li>
+      <li><strong>Share your screen</strong> in a meeting when you need help with something, so the other person sees exactly what you see.</li>
+    </ul>
+  </section>
+
+  <section class="card" id="m3">
+    <div class="card-head"><div class="badge">3</div><h3>OneDrive</h3></div>
+    <ul>
+      <li><strong>Save work files to OneDrive,</strong> not your desktop. They're backed up and you can open them on any work device.</li>
+      <li><strong>Share a link instead of an attachment</strong> when sending a file to a colleague, so everyone works on the same version.</li>
+      <li><strong>Saved over something by mistake?</strong> Right-click the file and choose Version history to go back to an earlier copy.</li>
+      <li><strong>Deleted a file?</strong> Check the Recycle bin in OneDrive. Deleted files stay there for a while before they're gone for good.</li>
+    </ul>
+  </section>
+
+  <section class="card" id="m4">
+    <div class="card-head"><div class="badge">4</div><h3>Our Knowledge Hub</h3></div>
+    <ul>
+      <li><strong>Use the search box</strong> at the top of the Hub to find a guide, a policy or a destination quickly.</li>
+      <li><strong>Click the star (Add to favourites)</strong> on the Hub so it's always one click away in SharePoint.</li>
+      <li><strong>Start at Knowledge Hub Home</strong> if you're not sure where something lives. Every section is linked from there.</li>
+    </ul>
+  </section>
+
+  <div class="part-title"><div class="num">2</div><div><div class="tag">Always</div><h2>Staying Secure</h2></div></div>
+
+  <section class="card" id="m5">
+    <div class="card-head"><div class="badge">5</div><h3>Keep Our Clients' Information Safe</h3></div>
+    <div class="status-line"><span class="dot dot-green"></span><span><strong>Never share your password,</strong> including with colleagues.</span></div>
+    <div class="status-line"><span class="dot dot-green"></span><span><strong>Complete your monthly IT security course</strong> when it's sent to you.</span></div>
+    <div class="status-line"><span class="dot dot-green"></span><span><strong>Lock your screen</strong> when you step away from your desk (Windows key + L).</span></div>
+    <div class="status-line"><span class="dot dot-amber"></span><span><strong>Think before you click.</strong> If an email asks you to sign in, pay something or open an attachment you weren't expecting, check with your manager first.</span></div>
+    <div class="callout callout-amber">
+      <div class="ic">⚠️</div>
+      <div><strong>Clicked on something that didn't feel right?</strong> Tell your manager straight away. Speaking up quickly is always the right thing to do.</div>
+    </div>
+  </section>
+
+  <div class="part-title"><div class="num">3</div><div><div class="tag">Handy</div><h2>One Tip That Works Everywhere</h2></div></div>
+
+  <section class="card" id="m6">
+    <div class="card-head"><div class="badge">✓</div><h3>Find Any Setting</h3></div>
+    <p>Outlook, Teams and OneDrive all have a search or settings search. If you're not sure where something is, type what you want to do, for example "out of office", "signature" or "notifications", and it will take you there.</p>
+    <div class="more-help"><span>Quick links</span><a href="https://outlook.office.com" target="_blank" rel="noopener">Outlook on the web</a><a href="https://www.microsoft365.com" target="_blank" rel="noopener">Microsoft 365 home</a></div>
+  </section>
+
+</div>
+
+<footer>
+  <span>Thompsons For Travel - Microsoft 365 Basics - Quick Tips</span>
+  <span>Updated October 2026</span>
+</footer>
+
+</body>
+</html>
